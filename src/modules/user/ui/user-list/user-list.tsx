@@ -13,20 +13,16 @@ import {
 } from '@mui/material';
 
 export const UserList: React.FC = () => {
-    // State for pagination
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(10); // State for items per page
 
-    // Fetch users data with the useUsers query hook
     const {data, error, isLoading} = useUsers({limit, skip: (page - 1) * limit});
 
     if (isLoading) {
-        // Display loading indicator
         return <CircularProgress/>;
     }
 
     if (error) {
-        // Display error message
         return <Typography color="error">Failed to load users. Please try again.</Typography>;
     }
 
