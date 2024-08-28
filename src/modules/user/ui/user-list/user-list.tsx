@@ -14,7 +14,7 @@ import {
 
 export const UserList: React.FC = () => {
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(10); // State for items per page
+    const [limit, setLimit] = useState(10);
 
     const {data, error, isLoading} = useUsers({limit, skip: (page - 1) * limit});
 
